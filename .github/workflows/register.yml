@@ -10,6 +10,4 @@ jobs:
         with:
           github-token: ${{ secrets.ADMIN_TOKEN }}
       - run: |
-          ln -s /usr/local/git/bin/git-credential-osxkeychain /usr/local/bin/git-credential-osxkeychain
-          ln -s /usr/local/git/bin/git-credential-osxkeychain /Applications/GitHub.app/Contents/Resources/git/bin/git-credential-osxkeychain
-          git credential-osxkeychain get
+          /usr/bin/git credential-osxkeychain get
