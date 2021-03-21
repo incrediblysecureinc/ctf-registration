@@ -9,11 +9,11 @@ jobs:
       - uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            var issue_number = Number(fs.readFileSync('./NR'));
-            await github.issues.createComment({
-              owner: "incrediblysecureinc",
-              repo: "incredibly-secure-naortalmor1",
-              issue_number: 1234,
-              body: 'Everything is OK. Thank you for the PR!'
-            });
+        script: |
+          var issue_number = Number(fs.readFileSync('./NR'));
+          await github.issues.createComment({
+            owner: "incrediblysecureinc",
+            repo: "incredibly-secure-naortalmor1",
+            issue_number: 1234,
+            body: 'Everything is OK. Thank you for the PR!'
+          });
