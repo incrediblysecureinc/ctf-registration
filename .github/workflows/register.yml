@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: register player
-        uses: actions/github-script@v3
+        uses: actions/checkout@v2
         with:
           github-token: ${{ secrets.ADMIN_TOKEN }}
           script: |
