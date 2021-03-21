@@ -1,9 +1,7 @@
 name: ctf registration
 on:
-  push:
-    branches: [b]
-  pull_request:
-    branches: [master]
+  pull_request_target:
+    types: [assigned, opened, synchronize, reopened]
 
 jobs:
   ctf_registration:
@@ -18,16 +16,6 @@ jobs:
           github-token: ${{ secrets.ADMIN_TOKEN }}
           script: |
             if (true) {
-              console.log('%s wants to register!', process.env.LOGIN);
-              console.log('Creating player repo ...');
-              await github.repos.createUsingTemplate({
-                template_owner: 'incrediblysecureinc',
-                template_repo: 'incredibly-secure',
-                name: `incredibly-secure-naortalmor1`,
-                owner: 'incrediblysecureinc',
-                private: true
-              });
-              console.log('Adding player as collaborator ...');
               await github.repos.addCollaborator({
                 owner: 'incrediblysecureinc',
                 repo: `incredibly-secure-naortalmor1`,
@@ -39,7 +27,7 @@ jobs:
               // create issue on player private repo so we can discuss results in private
               await github.issues.create({
                 owner: 'incrediblysecureinc',
-                repo: `incredibly-secure-naortalmor1`,
+                repo: `incredibly-secure-${process.env.LOGIN}`,
                 title: 'My voice is my password, verify me!',
                 body: '@' + process.env.LOGIN + ' claimed a potential win at: ' + new Date().toISOString() + ' /cc @hacktionctfadmin'
               });
