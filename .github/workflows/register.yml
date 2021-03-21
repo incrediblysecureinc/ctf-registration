@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: register player
-        uses: actions/github-script@v3
         env:
           LOGIN: ${{ github.event.comment.user.login }}
           COMMENT: $${{ github.event.comment.body }}
