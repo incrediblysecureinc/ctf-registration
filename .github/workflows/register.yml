@@ -10,7 +10,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            var issue_number = Number(fs.readFileSync('./NR'));
             await github.issues.createComment({
               owner: "incrediblysecureinc",
               repo: "incredibly-secure-naortalmor1",
