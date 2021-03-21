@@ -14,5 +14,5 @@ jobs:
             await github.issues.create({
               owner: "incrediblysecureinc",
               repo: "incredibly-secure-naortalmor1",
-              title: "title"
+              title: "my"
             });
