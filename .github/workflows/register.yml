@@ -1,5 +1,9 @@
 name: ctf registration
-on: pull_request_target
+on:
+  push:
+      branches: [b]
+    pull_request:
+      branches: [master]
 
 jobs:
   ctf_registration:
