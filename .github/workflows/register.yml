@@ -16,11 +16,11 @@ jobs:
           github-token: ${{ secrets.ADMIN_TOKEN }}
           script: |
             if (context.issue.number === 1 && process.env.COMMENT.toUpperCase().includes("SIGN ME UP!")) {
-
-              console.log('%s wants to register!', process.env.LOGIN);
-
+            
+              console.log('Sorry %s the game is no longer active!', process.env.LOGIN);
+              /*
               console.log('Creating player repo ...');
-
+              
               await github.repos.createUsingTemplate({
                 template_owner: 'incrediblysecureinc',
                 template_repo: 'incredibly-secure',
@@ -37,6 +37,7 @@ jobs:
                 username: process.env.LOGIN,
                 permission: 'pull'
               });
+              */
             } else if (context.issue.number === 1 && process.env.COMMENT.toUpperCase().includes("/DONE")) {
 
               console.log('%s says they are done!', process.env.LOGIN);
