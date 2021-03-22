@@ -1,3 +1,5 @@
+ANNOUNCEMENT: The Call to Hacktion CTF has officially closed as per March 22nd, Noon PST, 2021 ... thanks for playing everyone!
+
 # ctf-registration
 
 If you would like to participate in the GitHub CTF, please leave a comment [here](https://github.com/incrediblysecureinc/ctf-registration/issues/1) and we will spin up a game repo and invite you as a read-only collaborator.
